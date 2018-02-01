@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
@@ -39,7 +38,7 @@ public class DataInjectorApplication {
             java.net.URI uri = new URI(shapeResourceUrl);
 
             long waitTime;
-            for (int i=0; i<1000; ++i)
+            for (int i=0; i<10000; ++i)
             {
 			    Shape shape = new Shape();
 
@@ -47,7 +46,9 @@ public class DataInjectorApplication {
 
                 restTemplate.postForLocation(uri, request);
 
-                Thread.sleep(waitTime = (long)((Math.random()+0.1)*1000));
+				waitTime = (long) ((Math.random()+1)*100);
+
+                Thread.sleep(waitTime);
 
                 logger.info("Inserting shape: after " + waitTime + "ms");
             }
