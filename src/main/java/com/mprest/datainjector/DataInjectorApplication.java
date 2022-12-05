@@ -31,6 +31,12 @@ public class DataInjectorApplication {
 
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+
+		/*
+			CommandLineRunner is a functional interface with one abstract method
+			void run(String... args);
+		 */
+
 		return args -> {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
