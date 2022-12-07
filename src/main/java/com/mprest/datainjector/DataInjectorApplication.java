@@ -52,7 +52,7 @@ public class DataInjectorApplication {
 
                 restTemplate.postForLocation(uri, request);
 
-				waitTime = (long) ((Math.random()+1)*100);
+				waitTime = (long) ((Math.random()+1)*1000);
 
                 Thread.sleep(waitTime);
 
