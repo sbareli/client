@@ -1,4 +1,4 @@
-package com.mprest.datainjector;
+package com.basix.datainjector;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

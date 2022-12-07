@@ -1,4 +1,4 @@
-package com.mprest.datainjector;
+package com.basix.datainjector;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,11 +32,6 @@ public class DataInjectorApplication {
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 
-		/*
-			CommandLineRunner is a functional interface with one abstract method
-			void run(String... args);
-		 */
-
 		return args -> {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
@@ -52,7 +47,7 @@ public class DataInjectorApplication {
 
                 restTemplate.postForLocation(uri, request);
 
-				waitTime = (long) ((Math.random()+1)*1000);
+				waitTime = (long) ((Math.random()+1)*100);
 
                 Thread.sleep(waitTime);
 
