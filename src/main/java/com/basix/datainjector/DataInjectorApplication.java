@@ -45,7 +45,13 @@ public class DataInjectorApplication {
 
                 HttpEntity<Shape> request = new HttpEntity<>(shape, headers);
 
-                restTemplate.postForLocation(uri, request);
+                try {
+	                restTemplate.postForLocation(uri, request);
+                }
+                catch (Exception e) {
+                	logger.info("Lets wait for server to be up...");
+	                Thread.sleep(2000);
+                }
 
 				waitTime = (long) ((Math.random()+1)*100);
 
